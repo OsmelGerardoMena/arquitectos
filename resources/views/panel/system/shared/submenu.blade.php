@@ -1,0 +1,1 @@
+<p style="padding-top: 12px;">{{ $page['title'] }}</p>

@@ -124,12 +124,23 @@
                                     </li>
                                 </ul>
                             </div>
-                            <form id="saveForm" action="{{ $navigation['base'].'/action/update' }}" method="post" accept-charset="utf-8">
+                            <form id="saveForm" action="{{ $navigation['base'].'/action/update' }}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
                                 <div class="tab-content col-sm-12 margin-bottom--20">
                                     <div role="tabpanel" class="tab-pane active row" id="general">
                                         <div class="col-sm-4">
                                             <label for="cto34_imgLogo" class="form-label-full">Foto</label>
-                                            <div class="panel-item--image"><p>No disponible.</p></div>
+                                            <div class="panel-item--image" style="height: 240px; background-image: url({{ url('panel/images/'.$persons['one']->PersonImagen) }}) ">    
+                                            </div>
+                                            <input id="cto34_img"
+                                               name="cto34_img"
+                                               type="file"
+                                               value=""
+                                               class="form-control form-control-plain input-sm"
+                                               accept="image/gif, image/jpeg, image/jpg, image/png" />
+                                            <input id="cto34_imgOld"
+                                               name="cto34_imgOld"
+                                               type="hidden"
+                                               value="{{ $persons['one']->PersonImagen }}" />
                                             <small>
                                                 @if (!empty($persons['one']->personBusiness) )
                                                     @if (!empty($persons['one']->personBusiness->person))
@@ -188,6 +199,7 @@
                                                         <input type="hidden" id="cto34_businessName" name="cto34_businessName" value="">
                                                     @endif
                                                 </div>
+                                                <!--
                                                 <div class="form-group col-sm-12">
                                                     <label for="">Categoría</label>
                                                     @if (!empty($persons['one']->personBusiness))
@@ -205,13 +217,13 @@
                                                                readonly
                                                                class="form-control form-control-plain input-sm">
                                                     @endif
-                                                </div>
+                                                </div>-->
                                                 <div class="form-group col-sm-12">
                                                     <label for="">Cargo en la obra</label>
                                                     <input id="cto34_job"
                                                            name="cto34_job"
                                                            type="text"
-                                                           value="{{ ifempty($persons['one']->DirPersonaObraEmpresaCargoEnLaObra, '') }}"
+                                                           value="{{ ifempty($persons['one']->DirPersonaEmpresaObraCargo, '') }}"
                                                            class="form-control form-control-plain input-sm">
                                                 </div>
                                             </div>

@@ -177,13 +177,13 @@
                     <div class="col-sm-4">
                         <label for="cto34_imgLogo" class="form-label-full">Foto</label>
                         @if (!empty($persons['one']->personBusiness))
-                            @if (!empty($persons['one']->personBusiness->person->PersonaFoto))
-                                <div class="panel-item--image" style="background-image: url({{ url('panel/images/'.$persons['one']->personBusiness->person->PersonaFoto) }}) ">
+                            @if (!empty($persons['one']->PersonImagen))
+                                <div class="panel-item--image" style="background-image: url({{ url('panel/images/'.$persons['one']->PersonImagen) }}) ">
                                     <div class="panel-item--image_nav">
-                                        <button type="button" class="btn btn-primary btn-xs is-tooltip" title="Ver" data-image="{{ url('panel/images/'.$persons['one']->personBusiness->person->PersonaFoto) }}" data-toggle="modal" data-target="#showImageModal" data-placement="bottom">
+                                        <button type="button" class="btn btn-primary btn-xs is-tooltip" title="Ver" data-image="{{ url('panel/images/'.$persons['one']->PersonImagen) }}" data-toggle="modal" data-target="#showImageModal" data-placement="bottom">
                                             <span class="fa fa-eye fa-fw"></span>
                                         </button>
-                                        <a href="{{ url('panel/images/'.$persons['one']->personBusiness->person->PersonaFoto) }}" class="btn btn-primary btn-xs is-tooltip" title="Descargar" data-placement="bottom" download>
+                                        <a href="{{ url('panel/images/'.$persons['one']->PersonImagen) }}" class="btn btn-primary btn-xs is-tooltip" title="Descargar" data-placement="bottom" download>
                                             <span class="fa fa-download fa-fw"></span>
                                         </a>
                                     </div>
@@ -228,6 +228,7 @@
                                     @endif
                                 </p>
                             </div>
+                            <!--
                             <div class="form-group col-sm-12">
                                 <label for="">Categoría</label>
                                 <p class="help-block">
@@ -236,11 +237,11 @@
                                     @else
                                         --
                                     @endif
-                                </p>
-                            </div>
+                            </p>
+                            </div>-->
                             <div class="form-group col-sm-12">
                                 <label for="">Cargo en la obra</label>
-                                <p class="help-block">{{ ifempty($persons['one']->DirPersonaObraEmpresaCargoEnLaObra) }}</p>
+                                <p class="help-block">{{ ifempty($persons['one']->DirPersonaEmpresaObraCargo) }}</p>
                             </div>
                             <div class="form-group col-sm-12 text-right">
                                 <label>

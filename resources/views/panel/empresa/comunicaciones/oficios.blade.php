@@ -14,12 +14,18 @@
                   Listado de oficios
                 </div>
                <!-- foreach -->
+               @if(empty($oficio))
+                <div class="align-middle">No hay registros</div>
+                @else
+               @foreach($oficio as $ofi)
                 <a href="" class="list-group-item">
                   <h4 class="list-group-item-heading"></h4>
                   <p class="text-muted small">
-                    <!-- datos -->
+                    {{ $ofi->OficioFolio }}
                   </p>
                 </a>
+                @endforeach
+                @endif
                 <!-- foreach -->
               </div>
             </div>

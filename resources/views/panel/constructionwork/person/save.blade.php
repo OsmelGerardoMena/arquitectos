@@ -109,12 +109,19 @@
                                     </li>
                                 </ul>
                             </div>
-                            <form id="saveForm" action="{{ $navigation['base'].'/action/save' }}" method="post" accept-charset="utf-8">
+                            <form id="saveForm" action="{{ $navigation['base'].'/action/save' }}" enctype="multipart/form-data" method="post" accept-charset="utf-8">
                                 <div class="tab-content col-sm-12 margin-bottom--20">
                                     <div role="tabpanel" class="tab-pane active row" id="general">
                                         <div class="col-sm-4">
                                             <label for="cto34_imgLogo" class="form-label-full">Foto</label>
-                                            <div class="panel-item--image"><p>No disponible.</p></div>
+                                            <div class="panel-item--image"></div>                                            
+                                            <p>No disponible.</p>
+                                            <input id="cto34_img"
+                                               name="cto34_img"
+                                               type="file"
+                                               value="{{ old('cto34_img') }}"
+                                               class="form-control form-control-plain input-sm"
+                                               accept="image/gif, image/jpeg, image/jpg, image/png" />
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="row">
@@ -134,14 +141,14 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="form-group col-sm-12">
+                                                <!--<div class="form-group col-sm-12">
                                                     <label for="">Categoría</label>
                                                     <input id="cto34_category"
                                                            name="cto34_category"
                                                            type="text"
                                                            value="{{ old('cto34_category') }}"
                                                            class="form-control form-control-plain input-sm">
-                                                </div>
+                                                </div>-->
                                                 <div class="form-group col-sm-12">
                                                     <label for="">Cargo en la obra</label>
                                                     <input id="cto34_job"

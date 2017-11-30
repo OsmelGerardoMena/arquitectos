@@ -27,12 +27,33 @@ class EmpresaController extends AppController
     	$works = ConstructionWork::orderBy('TbObraID', 'DESC')->where('RegistroInactivo', '=', 0)
     	->take(5)->get();
     	
-    	$cartasPoder = DB::table('tbCartaPoder')->where('TbmiEmpresaID_CartaPoder', $listEmpresas->tbDirEmpresaID)->paginate(5);
+    	/**
+         * [$cartasPoder description]
+         * Menu Comunicaciones
+         * @var [type]
+         */
+        $cartasPoder = DB::table('tbCartaPoder')
+        ->where('TbmiEmpresaID_CartaPoder', $listEmpresas->tbDirEmpresaID)
+        ->paginate(5);
+
+        $envios = DB::table('tbEnvios')
+        ->where('TbmiEmpresaID_Remitente',$listEmpresas->tbDirEmpresaID)
+        ->paginate(6);
+
+        $oficios = DB::table('tbOficio')->paginate(6);
+
         /**
          * Variables de Session del sistema
          */
         $request->session()->put('empresa.empresa', $listEmpresas->EmpresaAlias );
         $request->session()->put('empresa.empresa_id', $listEmpresas->tbDirEmpresaID );
+
+        $dataMenus = [
+            'empresas' => $comboEmpresas,
+            'cartas' => $cartasPoder,
+            'envios' => $envios,
+            'oficio' => $oficios
+        ];
       
     	$viewData = [
             'page' => [
@@ -42,7 +63,7 @@ class EmpresaController extends AppController
                 'all' => $works,
             ],
         ];
-    	return view('panel.empresa.index',$viewData)->with(['empresas' => $comboEmpresas,'cartas' => $cartasPoder]);
+    	return view('panel.empresa.index',$viewData)->with($dataMenus);
     }
 
 

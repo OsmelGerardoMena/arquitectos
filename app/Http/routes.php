@@ -33,9 +33,20 @@ Route::get('/language/{locale}', function($locale) {
 	return Redirect::to(URL::previous());
 });
 
+/**
+ * Rutas de Samuel Medina
+ */
 Route::post('empresas',['as' => 'empresas','uses' => '\App\Http\Controllers\Empresa\EmpresaController@indexEmpresa']);
 
+Route::get('cartasPoder/{id}','\App\Http\Controllers\Empresa\ComunicacionesController@cartapoder');
+
 Route::get('prueba',['as' => 'prueba','uses' => '\App\Http\Controllers\Empresa\ComunicacionesController@obligaciones']);
+
+/**
+ * Rutas de Samuel Medina
+ */
+
+
 
 /**
  * Rutas de usuario

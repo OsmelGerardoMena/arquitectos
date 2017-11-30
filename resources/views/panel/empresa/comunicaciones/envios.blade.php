@@ -11,12 +11,18 @@
                   Listado de envios
                 </div>
                <!-- foreach -->
+                @if(empty($envios))
+                <div class="align-middle">No hay registros</div>
+                @else
+               @foreach($envios as $env)
                 <a href="" class="list-group-item">
                   <h4 class="list-group-item-heading"></h4>
                   <p class="text-muted small">
-                    <!-- datos -->
+                    {{ $env->EnvioDocumentoNombre }}
                   </p>
                 </a>
+                @endforeach
+                @endif
                 <!-- foreach -->
               </div>
             </div>

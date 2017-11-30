@@ -154,7 +154,7 @@
                                                        name="cto34_expeditionDateText"
                                                        type="text"
                                                        placeholder="{{ Carbon\Carbon::parse($trades['one']->OficioFechaExpedicion)->formatLocalized('%A %d %B %Y') }}"
-                                                       readonly="readonly"
+                                                      
                                                        class="form-control form-control-plain input-sm date-formated">
                                                 <input name="cto34_expeditionDate" type="hidden" value="{{ $trades['one']->OficioFechaExpedicion }}">
                                                 <span class="input-group-addon" style="background-color: #fff">
